@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAREX - Painel de Gestão</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Ícones -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- TOPO -->
+    <header class="topo">
+        <div class="logo-area">
+            <i class="fa-solid fa-gear"></i>
+            <h1>PAREX</h1>
+        </div>
+
+        <p>Fale Fácil - Painel de Gestão</p>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="container">
+
+        <!-- FILTRO -->
+        <aside id="painel-filtro">
+
+            <div class="titulo-filtro">
+                <h2>Filtrar</h2>
+            </div>
+
+            <!-- Categoria -->
+            <div class="grupo-filtro">
+
+                <button class="accordion">
+                    Categoria
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="conteudo-accordion">
+
+                    <label>
+                        <input type="checkbox">
+                        Áreas
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        Refeições
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        Repúblicas
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        Segurança
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- Status -->
+            <div class="grupo-filtro">
+
+                <button class="accordion">
+                    Status
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="conteudo-accordion">
+
+                    <label>
+                        <input type="checkbox">
+                        Pendente
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        Em tratativa
+                    </label>
+
+                    <label>
+                        <input type="checkbox">
+                        Resolvido
+                    </label>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- ÁREA PRINCIPAL -->
+        <section class="conteudo">
+
+            <!-- BOTÃO FILTRO -->
+            <div class="area-botao-filtro">
+
+                <button id="abrir-filtro">
+
+                    <i class="fa-solid fa-sliders"></i>
+                    Filtros
+
+                </button>
+
+            </div>
+           
+            <!-- TABELA -->
+            <div class="tabela-area">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Categoria</th>
+                            <th>Nome</th>
+                            <th>Data</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+    <tr>
+
+        <td>001</td>
+
+        <td class="categoria">Áreas</td>
+
+        <td>Liam N.</td>
+
+        <td>10/01/2026 13:28</td>
+
+        <td class="col-status">
+            <span class="status pendente">
+                Pendente
+            </span>
+        </td>
+
+        <td class="acoes">
+
+            <button class="btn-descricao">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+
+            <button class="btn-status">
+                <i class="fa-solid fa-pencil"></i>
+            </button>
+
+        </td>
+
+    </tr>
+
+    <tr>
+
+        <td>002</td>
+
+        <td class="categoria">Refeições</td>
+
+        <td>Anônimo</td>
+
+        <td>11/01/2026 13:28</td>
+
+        <td class="col-status">
+            <span class="status pendente">
+                Pendente
+            </span>
+        </td>
+
+        <td class="acoes">
+
+            <button class="btn-descricao">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+
+            <button class="btn-status">
+                <i class="fa-solid fa-pencil"></i>
+            </button>
+
+        </td>
+
+    </tr>
+
+    <tr>
+
+        <td>003</td>
+
+        <td class="categoria">Repúblicas</td>
+
+        <td>Anônimo</td>
+
+        <td>12/01/2026 13:28</td>
+
+        <td class="col-status">
+            <span class="status tratativa">
+                Em tratativa
+            </span>
+        </td>
+
+        <td class="acoes">
+
+            <button class="btn-descricao">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+
+            <button class="btn-status">
+                <i class="fa-solid fa-pencil"></i>
+            </button>
+
+            <button>
+                <i class="fa-solid fa-trash"></i>
+            </button>
+
+        </td>
+
+    </tr>
+
+    <tr>
+
+        <td>004</td>
+
+        <td class="categoria">Segurança</td>
+
+        <td>Anônimo</td>
+
+        <td>13/01/2026 13:28</td>
+
+        <td class="col-status">
+            <span class="status tratativa">
+                Em tratativa
+            </span>
+        </td>
+
+        <td class="acoes">
+
+            <button class="btn-descricao">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+
+            <button class="btn-status">
+                <i class="fa-solid fa-pencil"></i>
+            </button>
+
+            <button>
+                <i class="fa-solid fa-trash"></i>
+            </button>
+
+        </td>
+
+    </tr>
+
+    <tr>
+
+        <td>005</td>
+
+        <td class="categoria">Áreas</td>
+
+        <td>Nicoly</td>
+
+        <td>14/01/2026 13:28</td>
+
+        <td class="col-status">
+            <span class="status tratativa">
+                Em tratativa
+            </span>
+        </td>
+
+        <td class="acoes">
+
+            <button class="btn-descricao">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+
+            <button class="btn-status">
+                <i class="fa-solid fa-pencil"></i>
+            </button>
+
+            <button>
+                <i class="fa-solid fa-trash"></i>
+            </button>
+
+        </td>
+
+    </tr>
+
+    <tr>
+
+        <td>006</td>
+
+        <td class="categoria">Refeições</td>
+
+        <td>Maria A.</td>
+
+        <td>15/01/2026 13:28</td>
+
+       <td class="col-status">
+            <span class="status resolvido">
+                Resolvido
+            </span>
+        </td>
+
+        <td class="acoes">
+
+            <button class="btn-descricao">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+
+            <button class="btn-status">
+                <i class="fa-solid fa-pencil"></i>
+            </button>
+
+            <button>
+                <i class="fa-solid fa-trash"></i>
+            </button>
+
+        </td>
+
+    </tr>
+
+</tbody>
+
+                </table>
+
+            </div>
+
+            <!-- DESCRIÇÃO -->
+            <div id="descricao">
+
+                <p>
+                    Necessidade de pintura na demarcação das vagas para PCD.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

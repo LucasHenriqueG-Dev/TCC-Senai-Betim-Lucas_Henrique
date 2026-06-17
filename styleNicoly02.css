@@ -1,0 +1,225 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#d9d9d9;
+}
+
+/* TOPO */
+
+.topo{
+    background:#173d63;
+    color:white;
+
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+
+    padding:10px 20px;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-area i{
+    font-size:28px;
+}
+
+.logo-area h1{
+    font-size:32px;
+}
+
+/* CONTAINER */
+
+.container{
+    display:flex;
+}
+
+/* FILTRO */
+
+#painel-filtro{
+
+    width:300px;
+    background:#efefef;
+
+    border-left:1px solid #999;
+
+    padding-top:20px;
+
+    display:none;
+}
+
+#painel-filtro.ativo{
+    display:block;
+}
+
+.titulo-filtro{
+    padding:0 20px 20px;
+}
+
+.grupo-filtro{
+    border-top:1px solid black;
+}
+
+.accordion{
+
+    width:100%;
+    border:none;
+
+    background:none;
+
+    padding:18px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:16px;
+    font-weight:bold;
+}
+
+.conteudo-accordion{
+
+    display:none;
+
+    padding:10px 20px;
+
+    flex-direction:column;
+    gap:15px;
+}
+
+.conteudo-accordion.ativo{
+    display:flex;
+}
+
+/* CONTEÚDO */
+
+.conteudo{
+    flex:1;
+    padding:30px 10px;
+}
+
+/* BOTÃO FILTRO */
+
+.area-botao-filtro{
+
+    display:flex;
+    justify-content:flex-end;
+
+    margin-bottom:20px;
+}
+
+#abrir-filtro{
+
+    border:none;
+
+    background:none;
+
+    font-size:22px;
+
+    cursor:pointer;
+}
+
+/* TABELA */
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+
+    background:white;
+}
+
+thead{
+    background:white;
+}
+
+th, td{
+
+    padding:15px;
+    text-align:center;
+}
+
+tbody tr:nth-child(odd){
+    background:#cfcfcf;
+}
+
+/* STATUS */
+
+.status{
+
+    color:white;
+
+    padding:8px 16px;
+
+    border-radius:20px;
+
+    font-size:14px;
+    font-weight:bold;
+}
+
+.pendente{
+    background:red;
+}
+
+.tratativa{
+    background:#1f9ad1;
+}
+
+.resolvido{
+    background:#39b54a;
+}
+
+/* AÇÕES */
+
+.acoes{
+
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.acoes button{
+
+    border:none;
+    background:none;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:#777;
+}
+
+.acoes button:hover{
+    transform:scale(1.1);
+}
+
+/* DESCRIÇÃO */
+
+#descricao{
+
+    background:white;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    min-height:220px;
+
+    display:none;
+}
+
+#descricao.ativo{
+    display:block;
+}
