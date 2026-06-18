@@ -1,0 +1,263 @@
+/* PALETAS DE CORES (MODO CLARO E ESCURO) */
+:root {
+    --fundo-body: #d9d9d9;
+    --fundo-topo: #173d63;
+    --texto-topo: white;
+    --fundo-filtro: #efefef;
+    --borda-filtro: #999;
+    --borda-grupo: black;
+    --fundo-tabela: white;
+    --texto-tabela: #000000;
+    --fundo-linha-impar: #cfcfcf;
+    --fundo-descricao: white;
+    --texto-descricao: #000000;
+    --texto-filtro: #000000;
+    
+    /* Cores do Dropdown */
+    --fundo-dropdown: white;
+    --texto-dropdown: #333333;
+    --hover-dropdown: #e2e8f0;
+}
+
+[data-theme="dark"] {
+    --fundo-body: #0f172a;
+    --fundo-topo: #020617;
+    --texto-topo: #f1f5f9;
+    --fundo-filtro: #1e293b;
+    --borda-filtro: #475569;
+    --borda-grupo: #475569;
+    --fundo-tabela: #1e293b;
+    --texto-tabela: #f1f5f9;
+    --fundo-linha-impar: #334155;
+    --fundo-descricao: #1e293b;
+    --texto-descricao: #f1f5f9;
+    --texto-filtro: #f1f5f9;
+
+    /* Cores do Dropdown no Escuro */
+    --fundo-dropdown: #1e293b;
+    --texto-dropdown: #f1f5f9;
+    --hover-dropdown: #334155;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: var(--fundo-body);
+    transition: background 0.3s ease;
+}
+
+/* TOPO */
+.topo {
+    background: var(--fundo-topo);
+    color: var(--texto-topo);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-area i {
+    font-size: 28px;
+    transition: transform 0.4s ease;
+}
+
+.logo-area i:hover {
+    transform: rotate(90deg);
+}
+
+.logo-area h1 {
+    font-size: 32px;
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* FILTRO */
+#painel-filtro {
+    width: 300px;
+    background: var(--fundo-filtro);
+    border-left: 1px solid var(--borda-filtro);
+    padding-top: 20px;
+    display: none;
+    color: var(--texto-filtro);
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+#painel-filtro.ativo {
+    display: block;
+}
+
+.titulo-filtro {
+    padding: 0 20px 20px;
+}
+
+.grupo-filtro {
+    border-top: 1px solid var(--borda-grupo);
+}
+
+.accordion {
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--texto-filtro);
+}
+
+.conteudo-accordion {
+    display: none;
+    padding: 10px 20px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.conteudo-accordion.ativo {
+    display: flex;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo {
+    flex: 1;
+    padding: 30px 10px;
+}
+
+/* BOTÃO FILTRO */
+.area-botao-filtro {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+#abrir-filtro {
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--texto-filtro);
+}
+
+/* TABELA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--fundo-tabela);
+    color: var(--texto-tabela);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+thead {
+    background: var(--fundo-tabela);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--fundo-linha-impar);
+}
+
+/* STATUS */
+.status {
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.pendente { background: red; }
+.tratativa { background: #1f9ad1; }
+.resolvido { background: #39b54a; }
+
+/* AÇÕES */
+.acoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.acoes button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #777;
+}
+
+.acoes button:hover {
+    transform: scale(1.1);
+}
+
+/* DESCRIÇÃO */
+#descricao {
+    background: var(--fundo-descricao);
+    color: var(--texto-descricao);
+    margin-top: 20px;
+    padding: 15px;
+    min-height: 220px;
+    display: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#descricao.ativo {
+    display: block;
+}
+
+/* ⚙️ ESTRUTURA DO MENU DROPDOWN DA ENGRENAGEM */
+.dropdown-menu {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: var(--fundo-dropdown);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 6px 0;
+    width: 160px;
+    z-index: 100;
+    display: none; 
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    color: var(--texto-dropdown);
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: var(--hover-dropdown);
+}
