@@ -28,7 +28,8 @@ document.getElementById('formLogin').addEventListener('submit', function(evento)
     const senha = document.getElementById('senhaAdmin').value;
 
     
-    alert(`Tentativa de login realizada com segurança!\nMatrícula informada: ${matricula}`);
+    alert(`Tentativa de login realizada com segurança!\nMatrícula informada: ${matricula}`); 
+    window.location.href = "tabela_reclamacao.html";
 });
 
 
