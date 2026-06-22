@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrativo - Fale Fácil</title> 
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="lateral-azul">
+        <img src="parex-logo.png" alt="Logo Parex" class="logo-parex">
+        <div class="detalhe-recorte"></div>
+    </div>
+
+    <div class="area-direita">
+        
+        <span class="engrenagem-config" id="btnEngrenagem">⚙</span>
+
+        <div class="dropdown-menu" id="dropdownMenu">
+            <button id="btnDarkMode" class="dropdown-item">🌙 Modo Escuro</button>
+        </div>
+
+        <div class="container-card">
+            <div class="linha-topo"></div>
+            <h2>Canal Fale Fácil</h2>
+            
+            <h3 style="color: var(--texto-comum); margin-bottom: 20px; font-weight: normal; font-size: 18px;">Login</h3>
+            
+            <form id="formLogin">
+                
+                <div style="display: none;" aria-hidden="true">
+                    <label for="campoArmadilha">Se você é humano, deixe este campo em branco</label>
+                    <input type="text" id="campoArmadilha" name="campoArmadilha" tabindex="-1">
+                </div>
+
+                <div class="wrapper-input">
+                    <label class="texto-pequeno">Matrícula:</label>
+                    <input type="text" id="matriculaAdmin" class="input-padrao" required placeholder="Digite sua matrícula">
+                </div>
+
+                <div class="wrapper-input">
+                    <label class="texto-pequeno">Senha:</label>
+                    <input type="password" id="senhaAdmin" class="input-padrao" required placeholder="Digite sua senha">
+                </div>
+
+                <button type="submit" class="btn-enviar">Entrar</button>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
