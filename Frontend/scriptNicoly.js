@@ -10,7 +10,7 @@ botaoFiltro.addEventListener("click", () => {
 });
 
 
-// ACCORDION
+// ACCORDION - testa tds bnt
 
 const accordions = document.querySelectorAll(".accordion");
 
