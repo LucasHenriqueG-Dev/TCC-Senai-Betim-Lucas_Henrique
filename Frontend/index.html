@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="style_davi1.css">
 </head>
 <body>
-
+    
     <div class="lateral-azul">
         <img src="parex-logo.png" alt="Logo Parex" class="logo-parex">
         <div class="detalhe-recorte"></div>
+        
+     
+        
     </div>
 
    <div class="area-direita">
@@ -19,7 +22,8 @@
 
     <div class="dropdown-menu" id="dropdownMenu">
         <a href="login.html" class="dropdown-item">🔒 Acesso Administrativo</a>
-        <button id="btnDarkMode" class="dropdown-item">🌙 Modo Escuro</button>
+        <button id="btnDarkMode" aria-label="botão de modo escuro e acesso ao login administrativo" class="dropdown-item">🌙 Modo Escuro
+     </button>
     </div>
 
     <div class="container-card">
@@ -35,7 +39,7 @@
                 </div>
 
                 <div class="wrapper-input">
-                    <select id="categoriaDemanda" class="input-padrao select-custom" required>
+                    <select id="categoriaDemanda"  aria-label="bloco de texto, para informar a categoria à qual deseja informar" class="input-padrao select-custom" required>
                         <option value="" disabled selected>Sobre o que deseja falar?</option>
                         <option value="areas">Áreas</option>
                         <option value="refeicoes">Refeições</option>
@@ -46,17 +50,17 @@
 
                 <div class="container-toggle">
                     <label class="switch">
-                        <input type="checkbox" id="toggleIdentificar">
+                        <input type="checkbox" id="toggleIdentificar" aria-label="campo para identificação" >
                         <span class="slider"></span>
                     </label>
                     <span class="label-toggle">Desejo me identificar</span>
                 </div>
 
                 <div class="wrapper-input">
-                    <textarea id="textoDemanda" class="input-padrao txt-grande" placeholder="O Que Aconteceu?" required></textarea>
+                    <textarea id="textoDemanda" aria-label="campo para relatar sobre o que aconteceu"  class="input-padrao txt-grande" placeholder="O Que Aconteceu?" required></textarea>
                 </div>
 
-                <div id="areaIdentificacao" class="wrapper-input" style="display: none;">
+                <div id="areaIdentificacao" aria-label="campo para informar o nome"  class="wrapper-input" style="display: none;">
                     <label class="texto-pequeno">Seu Nome / Matrícula</label>
                     <input type="text" id="nomeUsuario" class="input-padrao" placeholder="Digite seu nome">
                 </div>
