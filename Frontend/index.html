@@ -27,34 +27,33 @@
     </div>
 
     <div class="container-card">
-            
-            <div class="linha-topo"></div>
-            <h2>Canal Fale Fácil</h2>
-            
-            <form id="formDemandas">
-                
-                <div style="display: none;" aria-hidden="true">
-                    <label for="campoArmadilha">Se você é humano, deixe este campo em branco</label>
-                    <input type="text" id="campoArmadilha" name="campoArmadilha" tabindex="-1">
-                </div>
+    <div class="linha-topo"></div>
+    <h2>Canal Fale Fácil</h2>
+    
+    <form id="formDemandas">
+        
+        <div style="display: none;" aria-hidden="true">
+            <label for="campoArmadilha">Se você é humano, deixe este campo em branco</label>
+            <input type="text" id="campoArmadilha" name="campoArmadilha" tabindex="-1">
+        </div>
 
-                <div class="wrapper-input">
-                    <select id="categoriaDemanda"  aria-label="bloco de texto, para informar a categoria à qual deseja informar" class="input-padrao select-custom" required>
-                        <option value="" disabled selected>Sobre o que deseja falar?</option>
-                        <option value="areas">Áreas</option>
-                        <option value="refeicoes">Refeições</option>
-                        <option value="republicas">Repúblicas</option>
-                        <option value="seguranca">Questões de segurança</option>
-                    </select>
-                </div>
+        <div class="wrapper-input">
+            <select id="categoriaDemanda" aria-label="bloco de texto" class="input-padrao select-custom" required>
+                <option value="" disabled selected>Sobre o que deseja falar?</option>
+                <option value="1">Áreas</option>
+                <option value="2">Refeições</option>
+                <option value="3">Repúblicas</option>
+                <option value="4">Questões de segurança</option>
+            </select>
+        </div>
 
-                <div class="container-toggle">
-                    <label class="switch">
-                        <input type="checkbox" id="toggleIdentificar" aria-label="campo para identificação" >
-                        <span class="slider"></span>
-                    </label>
-                    <span class="label-toggle">Desejo me identificar</span>
-                </div>
+        <div class="container-toggle">
+            <label class="switch">
+                <input type="checkbox" id="toggleIdentificar" aria-label="campo para identificação" >
+                <span class="slider"></span>
+            </label>
+            <span class="label-toggle">Desejo me identificar</span>
+        </div>
 
                 <div class="wrapper-input">
                     <textarea id="textoDemanda" aria-label="campo para relatar sobre o que aconteceu"  class="input-padrao txt-grande" placeholder="O Que Aconteceu?" required></textarea>
@@ -71,7 +70,7 @@
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="scriptDavi.js"></script>
-    <script src="https://qmpsvxtnqrzbgiskbrut.supabase.co/rest/v1/"></script>
 </body>
 </html>

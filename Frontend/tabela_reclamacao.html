@@ -6,357 +6,92 @@
     <title>PAREX - Painel de Gestão</title>
 
     <link rel="stylesheet" href="styleNicoly02.css">
-
-    <!-- Ícones -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- TOPO -->
-   <header class="topo">
+    <header class="topo">
         <div class="logo-area" style="position: relative;">
             <i class="fa-solid fa-gear" id="btnEngrenagem" style="cursor: pointer;"></i>
             <h1>PAREX</h1>
 
             <div class="dropdown-menu" id="dropdownMenu">
-                <button id="btnDarkMode"  aria-label="botão de modo escuro" class="dropdown-item">🌙 Modo Escuro</button>
+                <button id="btnDarkMode" aria-label="botão de modo escuro" class="dropdown-item">🌙 Modo Escuro</button>
             </div>
         </div>
 
         <p>Fale Fácil - Painel de Gestão</p>
     </header>
 
-    <!-- CONTEÚDO -->
     <main class="container">
 
-        <!-- FILTRO -->
         <aside id="painel-filtro">
-
             <div class="titulo-filtro">
                 <h2>Filtrar</h2>
             </div>
 
-            <!-- Categoria -->
             <div class="grupo-filtro">
-
-                <button class="accordion" aria-label="filtro por categoria" >
+                <button class="accordion" aria-label="filtro por categoria">
                     Categoria
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
 
                 <div class="conteudo-accordion">
-
-                    <label>
-                        <input type="checkbox">
-                        Áreas
-                    </label>
-
-                    <label>
-                        <input type="checkbox">
-                        Refeições
-                    </label>
-
-                    <label>
-                        <input type="checkbox">
-                        Repúblicas
-                    </label>
-
-                    <label>
-                        <input type="checkbox">
-                        Segurança
-                    </label>
-
+                    <label><input type="checkbox"> Áreas</label>
+                    <label><input type="checkbox"> Refeições</label>
+                    <label><input type="checkbox"> Repúblicas</label>
+                    <label><input type="checkbox"> Segurança</label>
                 </div>
-
             </div>
 
-            <!-- Status -->
             <div class="grupo-filtro">
-
-                <button class="accordion" aria-label="filtro de status" >
+                <button class="accordion" aria-label="filtro de status">
                     Status
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
 
                 <div class="conteudo-accordion">
-
-                    <label>
-                        <input type="checkbox">
-                        Pendente
-                    </label>
-
-                    <label>
-                        <input type="checkbox">
-                        Em tratativa
-                    </label>
-
-                    <label>
-                        <input type="checkbox">
-                        Resolvido
-                    </label>
-
+                    <label><input type="checkbox"> Pendente</label>
+                    <label><input type="checkbox"> Em tratativa</label>
+                    <label><input type="checkbox"> Resolvido</label>
                 </div>
-
             </div>
-
         </aside>
 
-        <!-- ÁREA PRINCIPAL -->
         <section class="conteudo">
-
-            <!-- BOTÃO FILTRO -->
-            <div class="area-botao-filtro" aria-label="botão do filtro" >
-
+            <div class="area-botao-filtro" aria-label="botão do filtro">
                 <button id="abrir-filtro">
-
                     <i class="fa-solid fa-sliders"></i>
                     Filtros
-
                 </button>
-
             </div>
            
-            <!-- TABELA -->
-            <div class="tabela-area" aria-label="tabela que informa as reclamações salvas no DataBase" >
-
+            <div class="tabela-area" aria-label="tabela que informa as reclamações salvas no DataBase">
                 <table>
-
                     <thead>
-
                         <tr>
-
                             <th>ID</th>
                             <th>Categoria</th>
                             <th>Nome</th>
                             <th>Data</th>
                             <th>Status</th>
                             <th>Ações</th>
-
                         </tr>
-
                     </thead>
-
-                    <tbody>
-
-    <tr>
-
-        <td>001</td>
-
-        <td class="categoria">Áreas</td>
-
-        <td>Liam N.</td>
-
-        <td>10/01/2026 13:28</td>
-
-        <td class="col-status">
-            <span class="status pendente">
-                Pendente
-            </span>
-        </td>
-
-        <td class="acoes">
-
-            <button class="btn-descricao">
-                <i class="fa-regular fa-pen-to-square"></i>
-            </button>
-
-            <button class="btn-status">
-                <i class="fa-solid fa-pencil"></i>
-            </button>
-
-        </td>
-
-    </tr>
-
-    <tr>
-
-        <td>002</td>
-
-        <td class="categoria">Refeições</td>
-
-        <td>Anônimo</td>
-
-        <td>11/01/2026 13:28</td>
-
-        <td class="col-status">
-            <span class="status pendente">
-                Pendente
-            </span>
-        </td>
-
-        <td class="acoes">
-
-            <button class="btn-descricao">
-                <i class="fa-regular fa-pen-to-square"></i>
-            </button>
-
-            <button class="btn-status">
-                <i class="fa-solid fa-pencil"></i>
-            </button>
-
-        </td>
-
-    </tr>
-
-    <tr>
-
-        <td>003</td>
-
-        <td class="categoria">Repúblicas</td>
-
-        <td>Anônimo</td>
-
-        <td>12/01/2026 13:28</td>
-
-        <td class="col-status">
-            <span class="status tratativa">
-                Em tratativa
-            </span>
-        </td>
-
-        <td class="acoes">
-
-            <button class="btn-descricao">
-                <i class="fa-regular fa-pen-to-square"></i>
-            </button>
-
-            <button class="btn-status">
-                <i class="fa-solid fa-pencil"></i>
-            </button>
-
-            <button>
-                <i class="fa-solid fa-trash"></i>
-            </button>
-
-        </td>
-
-    </tr>
-
-    <tr>
-
-        <td>004</td>
-
-        <td class="categoria">Segurança</td>
-
-        <td>Anônimo</td>
-
-        <td>13/01/2026 13:28</td>
-
-        <td class="col-status">
-            <span class="status tratativa">
-                Em tratativa
-            </span>
-        </td>
-
-        <td class="acoes">
-
-            <button class="btn-descricao">
-                <i class="fa-regular fa-pen-to-square"></i>
-            </button>
-
-            <button class="btn-status">
-                <i class="fa-solid fa-pencil"></i>
-            </button>
-
-            <button>
-                <i class="fa-solid fa-trash"></i>
-            </button>
-
-        </td>
-
-    </tr>
-
-    <tr>
-
-        <td>005</td>
-
-        <td class="categoria">Áreas</td>
-
-        <td>Nicoly</td>
-
-        <td>14/01/2026 13:28</td>
-
-        <td class="col-status">
-            <span class="status tratativa">
-                Em tratativa
-            </span>
-        </td>
-
-        <td class="acoes">
-
-            <button class="btn-descricao">
-                <i class="fa-regular fa-pen-to-square"></i>
-            </button>
-
-            <button class="btn-status">
-                <i class="fa-solid fa-pencil"></i>
-            </button>
-
-            <button>
-                <i class="fa-solid fa-trash"></i>
-            </button>
-
-        </td>
-
-    </tr>
-
-    <tr>
-
-        <td>006</td>
-
-        <td class="categoria">Refeições</td>
-
-        <td>Maria A.</td>
-
-        <td>15/01/2026 13:28</td>
-
-       <td class="col-status">
-            <span class="status resolvido">
-                Resolvido
-            </span>
-        </td>
-
-        <td class="acoes">
-
-            <button class="btn-descricao">
-                <i class="fa-regular fa-pen-to-square"></i>
-            </button>
-
-            <button class="btn-status">
-                <i class="fa-solid fa-pencil"></i>
-            </button>
-
-            <button>
-                <i class="fa-solid fa-trash"></i>
-            </button>
-
-        </td>
-
-    </tr>
-
-</tbody>
-
+                    <tbody id="tabela-demandas">
+                    </tbody>
                 </table>
-
             </div>
 
-            <!-- DESCRIÇÃO -->
             <div id="descricao">
-
-                <p>
-                    Necessidade de pintura na demarcação das vagas para PCD.
-                </p>
-
-            </div>
-
+    <p id="texto-exibido">Clique no botão de edição (lápis com quadrado) de uma demanda para visualizar a descrição detalhada aqui.</p>
+</div>
         </section>
 
     </main>
 
-    <script src="script.js"></script>
-
-<script src="scriptNicoly.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="scriptNicoly.js"></script>
 </body>
 </html>

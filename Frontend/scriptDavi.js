@@ -1,113 +1,199 @@
-const botaoToggle = document.getElementById('toggleIdentificar');
-const areaEscondida = document.getElementById('areaIdentificacao');
-const campoNome = document.getElementById('nomeUsuario');
-const caixaTexto = document.getElementById('textoDemanda');
-
-const btnEngrenagem = document.getElementById('btnEngrenagem');
-const dropdownMenu = document.getElementById('dropdownMenu');
-const btnDarkMode = document.getElementById('btnDarkMode'); 
-
-
-botaoToggle.addEventListener('change', function() {
-    if (this.checked) {
-        areaEscondida.style.display = 'block';
-        campoNome.setAttribute('required', 'true');
-        caixaTexto.classList.remove('txt-grande');
-        caixaTexto.classList.add('txt-curto');
-    } else {
-        areaEscondida.style.display = 'none';
-        campoNome.value = '';
-        campoNome.removeAttribute('required');
-        caixaTexto.classList.remove('txt-curto');
-        caixaTexto.classList.add('txt-grande');
-    }
-});
-
-
-btnEngrenagem.addEventListener('click', (event) => {
-    event.stopPropagation();
-    dropdownMenu.classList.toggle('show');
-});
-
-document.addEventListener('click', () => {
-    dropdownMenu.classList.remove('show');
-});
-
-
-document.getElementById('formDemandas').addEventListener('submit', function(evento) {
-    evento.preventDefault(); 
-
-    
-    const armadilha = document.getElementById('campoArmadilha').value;
-    
-    
-    if (armadilha !== "") {
-        console.warn("Bloqueado pelo sistema de segurança (Bot detectado).");
-        
-        return; 
-    }
-
-    
-    alert("Formulário validado com segurança e enviado com sucesso!");
-});
-
-
-btnDarkMode.addEventListener('click', (event) => {
-    event.stopPropagation(); 
-    const htmlTag = document.documentElement;
-    const isDark = htmlTag.getAttribute('data-theme') === 'dark';
-
-    if (isDark) {
-        htmlTag.removeAttribute('data-theme');
-        btnDarkMode.textContent = '🌙 Modo Escuro';
-    } else {
-        htmlTag.setAttribute('data-theme', 'dark');
-        btnDarkMode.textContent = '☀️ Modo Claro';
-    }
-});
-
-const SUPABASE_URL = 'https://qmpsvxtnqrzbgiskbrut.supabase.co/rest/v1/';
+// 1. CONFIGURAÇÃO DO SUPABASE (Nome alterado para evitar conflito com o CDN)
+const SUPABASE_URL = 'https://qmpsvxtnqrzbgiskbrut.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_awciFXKFYcPV00RMDmKQFg_V4WWkZWM';
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+console.log("Cliente Supabase criado com sucesso!");
 
-const formDemandas = document.getElementById('formDemandas');
-const categoriaDemanda = document.getElementById('categoriaDemanda');
+// 2. ELEMENTOS DO FORMULÁRIO E INTERFACE
+const btnEngrenagem = document.getElementById('btnEngrenagem');
+const dropdownMenu = document.getElementById('dropdownMenu');
+const btnDarkMode = document.getElementById('btnDarkMode');
 
-const toggleIdentificar = document.getElementById('toggleIdentificar');
-const textoDemanda = document.getElementById('textoDemanda');
-const nomeUsuarioInput = document.getElementById('nomeUsuario');
+const form = document.getElementById('formDemandas');
+const categoria = document.getElementById('categoriaDemanda');
+const texto = document.getElementById('textoDemanda');
+const toggle = document.getElementById('toggleIdentificar');
+const areaEscondida = document.getElementById('areaIdentificacao');
+const campoNome = document.getElementById('nomeUsuario');
 
-formDemandas.addEventListener('submit' , async (event) => {
-event.preventDefault();
+// 3. MENU DROPDOWN E MODO ESCURO
+if (btnEngrenagem && dropdownMenu) {
+    btnEngrenagem.addEventListener('click', (event) => {
+        event.stopPropagation();
+        dropdownMenu.classList.toggle('show');
+    });
 
-const campoArmadilha = document.getElementById('campoArmadilha').value;
-
-if (campoArmadilha !== "") {
-    console.log("Bot detectado.");
-    return;
+    document.addEventListener('click', () => {
+        dropdownMenu.classList.remove('show');
+    });
 }
 
-let nomeFinal = 'Anônimo';
-if (toggleIdentificar.checked && nomeUsuarioInput.value.trim() !== "") {
-    nomeFinal = nomeUsuarioInput.value.trim();
+if (btnDarkMode) {
+    btnDarkMode.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const htmlTag = document.documentElement;
+        const isDark = htmlTag.getAttribute('data-theme') === 'dark';
+
+        if (isDark) {
+            htmlTag.removeAttribute('data-theme');
+            btnDarkMode.textContent = '🌙 Modo Escuro';
+        } else {
+            htmlTag.setAttribute('data-theme', 'dark');
+            btnDarkMode.textContent = '☀️ Modo Claro';
+        }
+    });
 }
 
-const { data, error } = await supabase.from('demandas').insert([
-{
-categoria: categoriaDemanda.value,
-deseja_identificar: toggleIdentificar.checked,
-nome_usuario: nomeFinal,
-texto_demanda: textoDemanda.value,
-status: 'Pendente'
+// 4. LÓGICA DO TOGGLE IDENTIFICAR (MOSTRAR/ESCONDER NOME)
+if (toggle && areaEscondida && campoNome && texto) {
+    toggle.addEventListener('change', function() {
+        if (this.checked) {
+            areaEscondida.style.display = 'block';
+            campoNome.setAttribute('required', 'true');
+            texto.classList.remove('txt-grande');
+            texto.classList.add('txt-curto');
+        } else {
+            areaEscondida.style.display = 'none';
+            campoNome.value = '';
+            campoNome.removeAttribute('required');
+            texto.classList.remove('txt-curto');
+            texto.classList.add('txt-grande');
+        }
+    });
 }
-]);
 
-if (error) {
-    alert('Erro ao enviar o registro: ' + error.message);
-    console.error(error);
-} else {
-    alert('Registro enviado com sucesso para o Canal Fale Fácil!');
-    formDemandas.reset();
+// 5. ENVIO DOS DADOS PARA O SUPABASE
+if (form) {
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Sistema de segurança contra bots
+        const armadilha = document.getElementById('campoArmadilha').value;
+        if (armadilha !== "") {
+            console.warn("Bloqueado pelo sistema de segurança (Bot detectado).");
+            return;
+        }
+
+        let nomeFinal = 'Anônimo';
+        if (toggle.checked && campoNome.value.trim() !== "") {
+            nomeFinal = campoNome.value.trim();
+        }
+
+        console.log("Enviando dados para o banco...");
+
+        const { data, error } = await supabaseClient
+            .from('demandas')
+            .insert([
+                {
+                    categoria_id: Number(categoria.value),
+                    texto_demanda: texto.value,
+                    deseja_identificar: toggle.checked,
+                    nome_usuario: nomeFinal,
+                    status: 'Pendente'
+                }
+            ]);
+
+        if (error) {
+            console.error("Erro do Supabase:", error);
+            alert("Erro ao enviar: " + error.message);
+        } else {
+            alert("Registro enviado com sucesso!");
+            form.reset();
+            if (toggle) toggle.checked = false;
+            if (areaEscondida) areaEscondida.style.display = 'none';
+        }
+    });
 }
+
+// 6. LÓGICA DE FILTROS E TABELAS (Para a página de gerenciamento)
+const botaoFiltro = document.getElementById("abrir-filtro");
+const painelFiltro = document.getElementById("painel-filtro");
+
+if (botaoFiltro && painelFiltro) {
+    botaoFiltro.addEventListener("click", () => {
+        painelFiltro.classList.toggle("ativo");
+    });
+}
+
+const accordions = document.querySelectorAll(".accordion");
+accordions.forEach((botao) => {
+    botao.addEventListener("click", () => {
+        const conteudo = botao.nextElementSibling;
+        if (conteudo) conteudo.classList.toggle("ativo");
+    });
+});
+
+const checkboxes = document.querySelectorAll('#painel-filtro input[type="checkbox"]');
+checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener("change", filtrarTabela);
+});
+
+function filtrarTabela() {
+    const categoriasSelecionadas = [];
+    const statusSelecionados = [];
+
+    checkboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            const valor = checkbox.parentElement.textContent.trim();
+            if (["Áreas", "Refeições", "Repúblicas", "Segurança"].includes(valor)) {
+                categoriasSelecionadas.push(valor);
+            } else {
+                statusSelecionados.push(valor);
+            }
+        }
+    });
+
+    const linhas = document.querySelectorAll("tbody tr");
+    linhas.forEach(function (linha) {
+        const catElement = linha.querySelector(".categoria");
+        const statElement = linha.querySelector(".col-status");
+
+        if (!catElement || !statElement) return;
+
+        const categoriaLinha = catElement.textContent.trim();
+        const statusLinha = statElement.textContent.trim();
+
+        let mostrar = true;
+
+        if (categoriasSelecionadas.length > 0 && !categoriasSelecionadas.includes(categoriaLinha)) {
+            mostrar = false;
+        }
+        if (statusSelecionados.length > 0 && !statusSelecionados.includes(statusLinha)) {
+            mostrar = false;
+        }
+
+        linha.style.display = mostrar ? "" : "none";
+    });
+}
+
+// Botões de excluir e editar status da tabela
+document.querySelectorAll(".fa-trash").forEach((icone) => {
+    icone.addEventListener("click", () => {
+        const linha = icone.closest("tr");
+        if (linha) linha.remove();
+    });
+});
+
+document.querySelectorAll(".btn-status").forEach((botao) => {
+    botao.addEventListener("click", () => {
+        const linha = botao.closest("tr");
+        if (!linha) return;
+        const status = linha.querySelector(".status");
+        if (!status) return;
+
+        if (status.classList.contains("pendente")) {
+            status.classList.remove("pendente");
+            status.classList.add("tratativa");
+            status.textContent = "Em tratativa";
+        } else if (status.classList.contains("tratativa")) {
+            status.classList.remove("tratativa");
+            status.classList.add("resolvido");
+            status.textContent = "Resolvido";
+        } else {
+            status.classList.remove("resolvido");
+            status.classList.add("pendente");
+            status.textContent = "Pendente";
+        }
+    });
 });
