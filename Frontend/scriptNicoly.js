@@ -76,7 +76,6 @@ async function carregarDemandas() {
         let dataFormatada = "Sem data";
         
         if (campoData) {
-            // Ajuste para evitar o "Invalid Date" substituindo o espaço por 'T' se necessário
             const dataTratada = campoData.replace(" ", "T");
             const dataObjeto = new Date(dataTratada);
             if (!isNaN(dataObjeto)) {
@@ -98,7 +97,6 @@ async function carregarDemandas() {
 
         const nomeCategoria = mapeamentoCategorias[demanda.categoria_id] || "Outros";
 
-        // Ajuste de segurança para o atributo do HTML não quebrar com aspas
         const textoInjetar = textoReal.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
         tr.innerHTML = `
@@ -134,25 +132,20 @@ function configurarEventosBotoes() {
     // Botão Ver Descrição
     document.querySelectorAll(".btn-descricao").forEach((botao) => {
         botao.addEventListener("click", (evento) => {
-            const elementoBotao = event.currentTarget;
+            const elementoBotao = evento.currentTarget;
             const texto = elementoBotao.getAttribute("data-texto");
             
-            console.log("Texto capturado:", texto);
-
-            // Seleciona o contêiner principal da descrição
             const painel = document.getElementById("descricao");
             
             if (painel) {
-                // Força o contêiner a ficar visível e adiciona um estilo de caixinha amigável
                 painel.style.display = "block";
                 painel.style.marginTop = "20px";
                 painel.style.padding = "15px";
                 painel.style.backgroundColor = "#f9f9f9"; 
-                painel.style.borderLeft = "5px solid #004070"; // Barrinha elegante do lado esquerdo
+                painel.style.borderLeft = "5px solid #004070"; 
                 painel.style.borderRadius = "4px";
                 painel.style.boxShadow = "0 2px 5px rgba(0,0,0,0.1)";
 
-                // Injeta o texto com uma cor contrastante para garantir que não fique invisível
                 painel.innerHTML = `
                     <strong style="color: #004070; display: block; margin-bottom: 5px;">Descrição da Demanda:</strong>
                     <p id="texto-exibido" style="color: #333333; margin: 0; font-size: 16px; font-weight: 500;">${texto}</p>

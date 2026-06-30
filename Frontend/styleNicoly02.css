@@ -225,7 +225,7 @@ tbody tr:nth-child(odd) {
     display: block;
 }
 
-/* ⚙️ ESTRUTURA DO MENU DROPDOWN DA ENGRENAGEM */
+/* ESTRUTURA DO MENU DROPDOWN DA ENGRENAGEM */
 .dropdown-menu {
     position: absolute;
     top: 45px;

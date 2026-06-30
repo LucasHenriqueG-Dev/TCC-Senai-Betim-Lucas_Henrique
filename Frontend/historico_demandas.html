@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAREX - Lixeira de Demandas</title>
+    
+    <link rel="stylesheet" href="styleNicoly02.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .container-lixeira {
+            padding: 30px 40px;
+            width: 100%;
+        }
+        .btn-voltar {
+            background-color: var(--fundo-linha-impar);
+            color: var(--texto-tabela);
+            padding: 10px 20px;
+            border: 1px solid var(--borda-filtro);
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-voltar:hover { opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <header class="topo">
+        <div class="logo-area" style="position: relative;">
+            <i class="fa-solid fa-gear" id="btnEngrenagem" style="cursor: pointer;"></i>
+            <h1>PAREX</h1>
+
+            <div class="dropdown-menu" id="dropdownMenu">
+                <button id="btnDarkMode" aria-label="botão de modo escuro" class="dropdown-item">🌙 Modo Escuro</button>
+            </div>
+        </div>
+
+        <p>Fale Fácil - Lixeira de Demandas</p>
+    </header>
+
+    <main class="container" style="flex-direction: column;">
+        <section class="conteudo container-lixeira">
+            
+            <a href="painel_gestao.html" class="btn-voltar">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao Painel
+            </a>
+            
+            <div class="tabela-area" aria-label="tabela de demandas deletadas">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Original</th>
+                            <th>Categoria</th>
+                            <th>Nome</th>
+                            <th>Data da Exclusão</th>
+                            <th>Status no momento</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-historico">
+                        <tr>
+                            <td colspan="6">Carregando lixeira...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="historico.js"></script>
+</body>
+</html>
