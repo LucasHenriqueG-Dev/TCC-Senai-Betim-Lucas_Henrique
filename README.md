@@ -112,11 +112,11 @@ Conclusão da Demanda
 
 ### Backend
 
-* Java
+* JavaScript
 
 ### Banco de Dados
 
-* MySQL
+* PostgreSQL - Supabase
 
 ### Ferramentas de Desenvolvimento
 
