@@ -6,9 +6,9 @@
 
 ##  Sobre o Projeto
 
-O **Fale Fácil** é uma plataforma desenvolvida para modernizar o processo de registro, acompanhamento e gerenciamento de demandas internas da empresa.
+O **Fale Fácil** é uma plataforma desenvolvida para modernizar o processo de registro manual realizado na portaria, acompanhamento e gerenciamento de demandas internas da empresa.
 
-A solução centraliza solicitações em um único ambiente digital, permitindo que colaboradores registrem demandas de forma identificada ou anônima, acompanhem o andamento de suas solicitações e recebam maior transparência durante todo o processo.
+A solução centraliza solicitações em um único ambiente digital, permitindo que colaboradores registrem demandas de forma identificada ou anônima.
 
 Ao substituir processos manuais por um sistema informatizado, o projeto busca reduzir retrabalho, minimizar perdas de informação e aumentar a eficiência operacional da organização.
 
